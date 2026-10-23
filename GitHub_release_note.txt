@@ -1,7 +1,8 @@
+
 GitHub Update Note, sync with 9.6_r
 
-SHA-1: 69b2082ceb90433a47158ee69a10e83844d85a31
 SHA-1: bfdf9124d2a16d22b7eb960db1d37062c57f96d5
 * [amebapro2][wlan] add function about noise floor api
 
+SHA-1: 69b2082ceb90433a47158ee69a10e83844d85a31
 * [amebapro2][wlan] Modify TSSI efem rfe_type == 1 setting. TSSI 0x26 for cgi efem.
