@@ -23,7 +23,7 @@ jobs:
 
       - name: Fetch and run sync script
         env:
-          GH_PAT: ${{ secrets.SYNC_PAT }}
+          SYNC_PAT: ${{ secrets.SYNC_PAT }}
         run: |
           curl -fsSL \
             -H "Authorization: token ${SYNC_PAT}" \
