@@ -31,6 +31,5 @@ jobs:
             -H "Authorization: token ${GH_PAT}" \
             -H "Accept: application/vnd.github.v3.raw" \
             "https://api.github.com/repos/strategy-sd3/py_script_for_release/contents/sync2_mirror_to_github.sh" \
-            -o sync.sh
-          chmod +x sync.sh
-          bash sync.sh
+            -o "$RUNNER_TEMP/sync.sh"
+          bash "$RUNNER_TEMP/sync.sh"
