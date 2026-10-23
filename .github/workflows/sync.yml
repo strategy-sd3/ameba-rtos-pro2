@@ -1,32 +1,34 @@
-name: Daily Sync Codebase
+name: Test Sync Codebase
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: {}          # manual trigger for testing
   # schedule:
-    # - cron: "30 0 * * *"
-#    - cron: "30 0 1,15 * *"
+  #   - cron: "0 3 * * *"       # enable after manual tests pass
 
 permissions:
   contents: write
 
+concurrency:
+  group: test-sync
+  cancel-in-progress: false
+
 jobs:
   sync:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-24.04
     steps:
-
-      - name: Checkout repo
+      - name: Checkout repo (full history, no persisted credentials)
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Fetch and run sync script
+      - name: Run sync script
         env:
-          SYNC: ${{ secrets.SYNC }}
+          GH_PAT: ${{ secrets.SYNC }}        
+          PUSH_TOKEN: ${{ github.token }}
         run: |
           curl -fsSL \
-            -H "Authorization: token ${SYNC}" \
+            -H "Authorization: token ${GH_PAT}" \
             -H "Accept: application/vnd.github.v3.raw" \
             "https://api.github.com/repos/strategy-sd3/py_script_for_release/contents/sync2_mirror_to_github.sh" \
             -o sync.sh
