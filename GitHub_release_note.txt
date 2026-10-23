@@ -1,6 +1,9 @@
 
 GitHub Update Note, sync with 9.6_r
 
+SHA-1: e4b30d66f0d08b06ec3474a1f7a9074dfbd95904
+* [amebapro2][wlan] fix skb issue due to wifi scan
+
 SHA-1: bfdf9124d2a16d22b7eb960db1d37062c57f96d5
 * [amebapro2][wlan] add function about noise floor api
 
