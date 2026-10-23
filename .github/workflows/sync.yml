@@ -23,10 +23,10 @@ jobs:
 
       - name: Fetch and run sync script
         env:
-          PAT_SYNC: ${{ secrets.sync }}
+          SYNC: ${{ secrets.SYNC }}
         run: |
           curl -fsSL \
-            -H "Authorization: token ${PAT_SYNC}" \
+            -H "Authorization: token ${SYNC}" \
             -H "Accept: application/vnd.github.v3.raw" \
             "https://api.github.com/repos/strategy-sd3/py_script_for_release/contents/sync2_mirror_to_github.sh" \
             -o sync.sh
